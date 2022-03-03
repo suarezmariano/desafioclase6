@@ -1,21 +1,21 @@
 const express = require('express');
 const app = express();
 
-//const Contenedor = require ("./Contenedor");
-//const contenedor = new Contenedor("./productos.txt");
+const Contenedor = require('./Contenedor');
+const contenedor = new Contenedor('./productos.txt');
 
 port = 8080;
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log('Server corriendo en el puerto: ' + port);
 });
 
-app.get('/', async (req, res) => {
-  //const productos = await contenedor.getAll();
+app.get('/', (req, res) => {
+  const productos = contenedor.getAll();
   res.json(productos);
 });
 
-app.get('/productoRamdom', async (req, res) => {
-  // prodcutoRamdom = await contenedor.productoRamdom();
-  // res.json(prodcutoRamdom);
+app.get('/productoRamdom', (req, res) => {
+  // productoRamdom = contenedor.productoRamdom();
+  // res.json(productoRamdom);
 });
