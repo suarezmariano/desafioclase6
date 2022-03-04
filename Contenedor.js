@@ -39,7 +39,7 @@ class Contenedor {
       let productosParsed = JSON.parse(productos);
       return productosParsed.find((producto) => id === producto.id);
     } catch (err) {
-      console.log('Error');
+      console.log('Error: ' + err);
     }
   }
 
@@ -66,13 +66,17 @@ class Contenedor {
     return 'Archivo Eliminado';
   }
 
-  productoRamdom() {
+  getRamdom() {
     try {
       const productos = fs.readFileSync(this.archivo);
-      let productosParsed = JSON.parse(productos);
-      return productosParsed;
+      const productosParsed = JSON.parse(productos);
+      const ramdom = Math.floor(
+        Math.random() * (productosParsed.length - 1) + 1
+      );
+      console.log(ramdom);
+      return productosParsed[ramdom - 1];
     } catch (err) {
-      console.log('Error');
+      console.log('Error: ' + err);
     }
   }
 }
