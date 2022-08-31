@@ -5,7 +5,7 @@ class Contenedor {
     this.archivo = archivo;
   }
 
-  async getAll() {
+  getAll() {
     try {
       const contenido = fs.readFileSync(this.archivo);
       return JSON.parse(contenido);
@@ -14,15 +14,15 @@ class Contenedor {
     }
   }
 
-  async getRamdom() {
+  getRamdom() {
     try {
       const productos = fs.readFileSync(this.archivo);
       const productosParsed = JSON.parse(productos);
       const ramdom = Math.floor(
         Math.random() * (productosParsed.length - 1) + 1
       );
-      console.log(ramdom);
-      return productosParsed[ramdom - 1];
+      console.log(ramdom + 1);
+      return productosParsed[ramdom];
     } catch (err) {
       console.log('Error: ' + err);
     }
