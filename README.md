@@ -1,4 +1,4 @@
-# desafioclase6: Servidor con Express
+# desafioClase6: Servidor con Express
 
 Para el curso de Backend de Coderhouse Argentina.
 
